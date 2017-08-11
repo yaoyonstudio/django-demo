@@ -1,0 +1,12 @@
+{% extends "common/base.html" %}
+
+{% block mainContent %}
+    <h2>Posts</h2>
+    <ul>
+        {% for post in data reversed %}
+            <li>{{ forloop.counter }}：{{ post.title }}</li>
+        {% empty %}
+            <li>没有数据</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

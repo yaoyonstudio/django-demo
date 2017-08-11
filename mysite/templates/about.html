@@ -1,0 +1,17 @@
+{% extends "common/base.html" %}
+{% load static %}
+{% block title %}About Me{% endblock %}
+{% block mainContent %}
+    <h3>{{ title }}</h3>
+    <h3>{{ content }}</h3>
+    {% if type == 1 %}
+       <p>A: {{ type }}</p>
+    {% elif type == 2 %}
+       <p>B: {{ type }}</p>
+    {% else %}
+       <p>C: {{ type }}</p>
+    {% endif %}
+
+    <img src="{% static "img/headpic.jpg" %}" alt="My image"/>
+    <img src="/static/img/headpic.jpg" alt="My image"/>
+{% endblock %}
