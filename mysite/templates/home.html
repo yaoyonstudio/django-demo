@@ -2,17 +2,21 @@
 {% load static %}
 {% block title %}Django Project{% endblock %}
 {% block mainContent %}
+<!-- slider start -->
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    {% for slider in sliders %}
+      <li data-target="#carouselExampleIndicators" data-slide-to="{{ forloop.counter0 }}" class="{% if forloop.counter == 1 %} active {% endif %}"></li>
+    {% empty %}
+        <li>没有数据</li>
+    {% endfor %}
   </ol>
   <div class="carousel-inner" role="listbox">
     {% for slider in sliders %}
-        <div class="carousel-item">
-            <img src="{{ slider.src }}" alt="{{ slider.title }}">
+        <div class="carousel-item {% if forloop.counter == 1 %} active {% endif %}">
+            <img src="/media/{{ slider.slide_src }}" alt="{{ slider.slide_title }}" style="width: 100%;" />
             <div class="carousel-caption d-none d-md-block">
-                <h3>{{ slider.title }}</h3>
+                <h3>{{ slider.slide_title }}</h3>
             </div>
         </div>
     {% empty %}
@@ -28,6 +32,41 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-{{ sliders }}
-{{ title }}
+<!-- slider end -->
+
+<div class="featured">
+    <ul>
+        <li class="card cardItem">
+          <img class="card-img-top" src="..." alt="Card image cap">
+          <div class="card-body">
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </li>
+        <li class="card cardItem">
+          <img class="card-img-top" src="..." alt="Card image cap">
+          <div class="card-body">
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </li>
+        <li class="card cardItem">
+          <img class="card-img-top" src="..." alt="Card image cap">
+          <div class="card-body">
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </li>
+        <li class="card cardItem">
+          <img class="card-img-top" src="..." alt="Card image cap">
+          <div class="card-body">
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </li>
+    </ul>
+</div>
+
+{{ featureds_items }}
+{{ featureds_ads }}
+
+<script>
+    $('.carousel').carousel()
+</script>
 {% endblock %}

@@ -13,12 +13,15 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 
 from mysite.views import hello, current_datetime, home, post, about, profile, posts
 
 urlpatterns = [
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^hello/$', hello),
     url(r'^home/$', home),
@@ -27,4 +30,4 @@ urlpatterns = [
     url(r'^post/(\d*)/$', post),
     url(r'^about/$', about),
     url(r'^profile/$', profile),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
 from django.template import Template, Context
 
 import datetime
+import MySQLdb
+
+from .models import Slide, Featured, Page, Post, Cate
 
 # Create your views here.
 
@@ -18,15 +20,17 @@ def current_datetime(request):
 def home(request):
     context = {}
     context['title'] = 'Home'
-    context['sliders'] = [
-        {'id': 1, 'src': '/static/img/slider1.jpg', 'title': 'Slider 1'},
-        {'id': 2, 'src': '/static/img/slider2.jpg', 'title': 'Slider 2'}
-    ]
+    context['sliders'] = Slide.objects.all()
+    context['featureds_items'] = Featured.objects.filter(featured_type=1)
+    context['featureds_ads'] = Featured.objects.filter(featured_type=2)
     return render(request, 'home.html', context)
 
 def posts(request):
     context = {}
     context['title'] = 'Posts'
+
+
+
     context['data'] = [
             {
                 "id": 1,

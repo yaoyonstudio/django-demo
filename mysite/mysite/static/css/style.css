@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100%;
+}
+
+.main {
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.footer {
+    height: 72px;
+}
+
+.copyright {
+    height: 72px;
+    line-height: 72px;
+}

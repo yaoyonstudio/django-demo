@@ -6,3 +6,5 @@ class Post(models.Model):
     post_content = models.TextField()
     post_publish = models.DateTimeField('date published')
 
+    def __str__(self):
+        return self.post_title

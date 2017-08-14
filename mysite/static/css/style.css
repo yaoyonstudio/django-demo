@@ -8,6 +8,8 @@ body {
 }
 
 .main {
+    margin-top: 12px;
+    margin-bottom: 12px;
 }
 
 .footer {
@@ -17,4 +19,24 @@ body {
 .copyright {
     height: 72px;
     line-height: 72px;
+}
+
+.slide .carousel-item img {
+    height: 328px;
+}
+
+.featured {
+    margin: 20px 0;
+}
+.featured ul {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.cardItem {
+    display: block;
+    flex: 1;
+}
+.cardItem:not(:last-child) {
+    margin-right: 1rem;
 }
