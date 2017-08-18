@@ -9,7 +9,7 @@ body {
 
 .main {
     margin-top: 12px;
-    margin-bottom: 12px;
+    margin-bottom: 84px;
 }
 
 .footer {
@@ -36,7 +36,33 @@ body {
 .cardItem {
     display: block;
     flex: 1;
+    border: none;
+    text-align: center;
 }
 .cardItem:not(:last-child) {
     margin-right: 1rem;
 }
+
+.cardItem img {
+    margin: 0 auto;
+    width: 118px;
+    height: 118px;
+}
+.cardItem .card-text {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.ad {
+
+}
+
+.ad_item {
+    margin-bottom: 10px;
+}
+
+.ad_item img {
+    width: 100%;
+}
+

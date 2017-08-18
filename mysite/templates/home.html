@@ -2,6 +2,7 @@
 {% load static %}
 {% block title %}Django Project{% endblock %}
 {% block mainContent %}
+
 <!-- slider start -->
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
@@ -36,35 +37,29 @@
 
 <div class="featured">
     <ul>
-        <li class="card cardItem">
-          <img class="card-img-top" src="..." alt="Card image cap">
-          <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-        </li>
-        <li class="card cardItem">
-          <img class="card-img-top" src="..." alt="Card image cap">
-          <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-        </li>
-        <li class="card cardItem">
-          <img class="card-img-top" src="..." alt="Card image cap">
-          <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-        </li>
-        <li class="card cardItem">
-          <img class="card-img-top" src="..." alt="Card image cap">
-          <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-        </li>
+        {% for item in featureds_items %}
+            <li class="card cardItem">
+              <img class="card-img-top" src="/media/{{ item.featured_src }}" alt="{{ item.featured_title }}">
+              <div class="card-body">
+                <p class="card-text">{{ item.featured_title }}</p>
+              </div>
+            </li>
+        {% empty %}
+            <li>没有数据</li>
+        {% endfor %}
     </ul>
 </div>
 
-{{ featureds_items }}
-{{ featureds_ads }}
+
+<div class="ad">
+    {% for item in featureds_ads %}
+    <div class="ad_item">
+        <img src="/media/{{ item.featured_src }}" alt="item.featured_title" />
+    </div>
+    {% empty %}
+        <p>没有数据</p>
+    {% endfor %}
+</div>
 
 <script>
     $('.carousel').carousel()

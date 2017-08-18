@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^hello/$', hello),
     url(r'^home/$', home),
+    url(r'^$', home),
     url(r'^now/$', current_datetime),
     url(r'^posts/$', posts),
     url(r'^post/(\d*)/$', post),

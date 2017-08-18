@@ -20,3 +20,34 @@ body {
     height: 72px;
     line-height: 72px;
 }
+
+.slide .carousel-item img {
+    height: 328px;
+}
+
+.featured {
+    margin: 20px 0;
+}
+.featured ul {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.cardItem {
+    display: block;
+    flex: 1;
+    border: none;
+    text-align: center;
+}
+.cardItem:not(:last-child) {
+    margin-right: 1rem;
+}
+
+.cardItem img {
+    margin: 0 auto;
+}
+.cardItem .card-text {
+    text-align: center;
+}
+
+

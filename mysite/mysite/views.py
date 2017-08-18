@@ -5,7 +5,7 @@ from django.template import Template, Context
 import datetime
 import MySQLdb
 
-from .models import Slide, Featured, Page, Post, Cate
+from .models import Config, Slide, Featured, Page, Post, Cate
 
 # Create your views here.
 
@@ -17,12 +17,21 @@ def current_datetime(request):
     html = "<html><body>It is now %s.</body></html>" % now
     return HttpResponse(html)
 
+def getConfig():
+    config = {}
+    tmp = {}
+    config['config'] = Config.objects.all().values()
+    for item in config['config']:
+        tmp[item['config_key']] = item['config_value']
+    return tmp
+
 def home(request):
     context = {}
     context['title'] = 'Home'
     context['sliders'] = Slide.objects.all()
     context['featureds_items'] = Featured.objects.filter(featured_type=1)
     context['featureds_ads'] = Featured.objects.filter(featured_type=2)
+    context['config'] = getConfig()
     return render(request, 'home.html', context)
 
 def posts(request):
