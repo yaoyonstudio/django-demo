@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url, include
+from django.urls import include, path
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
@@ -21,6 +22,7 @@ from django.conf.urls.static import static
 from mysite.views import hello, current_datetime, home, post, about, profile, posts
 
 urlpatterns = [
+    path('api/', include('api.urls')),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^hello/$', hello),

@@ -66,7 +66,7 @@ class Featured(models.Model):
 class Page(models.Model):
     page_title = models.CharField(max_length=200)
     page_name = models.CharField(max_length=200)
-    page_author = models.ForeignKey('auth.User')
+    page_author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     page_status = models.BooleanField('page_status', default=True)
     page_date = models.DateTimeField(default=timezone.now)
     page_modified = models.DateTimeField(default=timezone.now)
@@ -98,7 +98,7 @@ class Cate(models.Model):
 
 class Post(models.Model):
     post_title = models.CharField('标题', max_length=200)
-    post_author = models.ForeignKey('auth.User', verbose_name='作者')
+    post_author = models.ForeignKey('auth.User', verbose_name='作者', on_delete=models.CASCADE)
     cate = models.ForeignKey(Cate, on_delete=models.CASCADE, verbose_name='类别')
     post_status = models.BooleanField('是否发布', default=True)
     post_recommend = models.BooleanField('是否推荐', default=False)

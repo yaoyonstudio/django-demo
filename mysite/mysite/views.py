@@ -38,7 +38,7 @@ def posts(request):
     context = {}
     context['title'] = 'Posts'
 
-
+    print(Post.objects.all())
 
     context['data'] = [
             {
